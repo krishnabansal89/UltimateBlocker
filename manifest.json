@@ -6,9 +6,10 @@
     "action": {
         "default_popup": "js/index.html",
         "default_title": "React Chrome Extension"
+
     },
     "permissions": [
-        "storage", "tabs"
+        "storage", "tabs" 
     ],
     "content_scripts": [
         {
@@ -23,5 +24,5 @@
     "background": {
         "service_worker": "js/background.js"
     }, 
-    "mayDisable": false
+    "options_page": "js/options.html"
 }

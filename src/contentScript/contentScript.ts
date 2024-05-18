@@ -73,35 +73,33 @@ const redirect = () => {
     "webdesignledger.com",
     "webdesignerwall.com",
     "webdesign",
+    "claude.ai",
   ];
-  if (checker(data)) {
+  if (checker(data) > 5) {
     console.log("Don't Let your Mind control You BUD!");
     const currenthref = window.location.href;
     if (!allowedUrl.some((url) => currenthref.includes(url))) {
       if (currenthref !== reDriectUrl) window.location.href = reDriectUrl;
-    } 
-  }
-  else {
+    }
+  } else {
     console.log("You are killing it!!!");
   }
 };
-const checker = (data: string): boolean => {
+const checker = (data: string): number => {
   const wordList = ["porn", "18+", "adult", "nude", "naked", "xxx"];
+  let count = 0;
   if (data) {
     for (const word of wordList) {
       if (data.includes(word)) {
         console.log("Word Found: ", word);
-        return true;
+        count++;
       }
     }
   }
-  return false;
+  return count;
 };
 const observer = new MutationObserver(redirect);
 observer.observe(document.body, { childList: true, subtree: true });
 
-chrome.runtime.onMessage.addListener((message) => {
-  if (message.data === "privateNotAllowed") {
-    console.log("Private Mode Not Allowed");
-    window.location.href = "chrome://extensions/";
-  }});
+
+
