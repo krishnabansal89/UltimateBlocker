@@ -7,6 +7,7 @@ module.exports = {
         index: "./src/index.tsx",
         background: "./src/background/background.ts",
         contentScript: "./src/contentScript/contentScript.ts",
+        options: "./src/options/options.tsx",
     },
     mode: "production",
     module: {
@@ -42,7 +43,7 @@ module.exports = {
                 { from: "manifest.json", to: "../manifest.json" },
             ],
         }),
-        ...getHtmlPlugins(["index"]),
+        ...getHtmlPlugins(["index" , "options"]),
     ],
     resolve: {
         extensions: [".tsx", ".ts", ".js"],

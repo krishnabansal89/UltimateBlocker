@@ -10,10 +10,7 @@ function App() {
   })
   return (
     <div className="App">
-      <div className="heading">
-        Get the Way to Monk lifestyle
-    {isAllowed ? <h1>Don't Let your Mind control You BUD!</h1> : <h1>You are killing it!!!</h1>}
-      </div>
+      
     </div>
   );
 }
